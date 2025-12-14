@@ -24,11 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 min-h-screen`}>
+      <body className={`${inter.className} bg-slate-50 text-slate-900 min-h-dvh`}>
         <AuthProvider>
           <SystemProvider>
             <HardwareBar />
-            <main className="pt-14 pb-20 px-4 min-h-screen">
+            <main className="pt-14 pb-20 px-4 min-h-dvh">
               <MainLayout>{children}</MainLayout>
             </main>
             <DemoControls />

@@ -141,7 +141,7 @@ export default function MensajesPage() {
 
     // Chat View
     return (
-        <div className="flex flex-col h-[calc(100vh-8rem)]">
+        <div className="flex flex-col h-[calc(100dvh-8rem)]">
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4 border-b border-blue-800 flex items-center gap-3">
                 <Button
                     variant="ghost"

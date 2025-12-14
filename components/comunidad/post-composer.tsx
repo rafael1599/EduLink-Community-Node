@@ -90,7 +90,7 @@ export function PostComposer({ onSubmit }: PostComposerProps) {
                         <p className="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">
                             Tipo de publicación
                         </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                        <div className="grid grid-cols-3 gap-2">
                             {availableTypes.map((typeOption) => {
                                 const Icon = typeOption.icon
                                 const isSelected = selectedType === typeOption.type
@@ -107,8 +107,8 @@ export function PostComposer({ onSubmit }: PostComposerProps) {
                                         )}
                                     >
                                         <Icon className={cn("h-5 w-5", isSelected ? typeOption.color : "text-slate-500")} />
-                                        <div className="flex-1 text-left">
-                                            <p className={cn("font-semibold text-sm", isSelected && typeOption.color)}>
+                                        <div className="flex-1 text-left min-w-0">
+                                            <p className={cn("font-semibold text-xs sm:text-sm truncate", isSelected && typeOption.color)}>
                                                 {typeOption.label}
                                             </p>
                                         </div>
@@ -153,7 +153,7 @@ export function PostComposer({ onSubmit }: PostComposerProps) {
             {/* Quick Actions (when collapsed) */}
             {!isExpanded && (
                 <div className="border-t border-slate-200 pt-3 mt-3">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-2">
                         {availableTypes.map((typeOption) => {
                             const Icon = typeOption.icon
 

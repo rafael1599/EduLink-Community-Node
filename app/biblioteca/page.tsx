@@ -94,7 +94,7 @@ export default function BibliotecaPage() {
                                 <p>Acceso Restringido</p>
                             </div>
                         ) : activeFolder ? (
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {files?.map((file: FileData) => (
                                     <Card
                                         key={file.id}

@@ -44,7 +44,7 @@ export function HardwareBar() {
             <div className="flex items-center gap-3">
                 <Link href="/" className="flex items-center gap-2 hover:bg-slate-800 px-3 py-1.5 rounded transition-colors bg-blue-600 hover:bg-blue-700">
                     <Home className="h-5 w-5 text-white" />
-                    <span className="text-sm font-bold text-white">Inicio</span>
+                    <span className="text-sm font-bold text-white hidden sm:inline">Inicio</span>
                 </Link>
 
                 {/* Network indicators */}
@@ -95,7 +95,7 @@ export function HardwareBar() {
                     "flex items-center gap-1.5 font-bold transition-colors",
                     batteryLevel < 20 ? "text-red-400" : isCharging ? "text-yellow-400" : "text-slate-100"
                 )}>
-                    <span>{batteryLevel.toFixed(1)}%</span>
+                    <span className="hidden sm:inline">{batteryLevel.toFixed(1)}%</span>
                     {isCharging ? (
                         <BatteryCharging className="h-5 w-5 animate-pulse" />
                     ) : (
