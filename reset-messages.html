@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Mensajes - EduLink</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button.danger {
+            background: #dc2626;
+        }
+
+        button.danger:hover {
+            background: #b91c1c;
+        }
+
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .info {
+            background: #3b82f6;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔄 Actualizar Sistema de Mensajes</h1>
+        <div class="info">
+            <strong>📢 Nueva funcionalidad:</strong> El sistema de mensajería ahora usa mensajes directos entre usuarios
+            en lugar de canales.<br><br>
+            <strong>⚠️ Importante:</strong> Los mensajes antiguos del sistema de canales no son compatibles. Necesitas
+            resetear la tabla de mensajes.
+        </div>
+
+        <button onclick="clearMessages()">🗑️ Borrar Mensajes Antiguos</button>
+        <button class="danger" onclick="resetDatabase()">🔄 Reset Completo de Base de Datos</button>
+
+        <div class="success" id="success">
+            ✅ ¡Operación completada! Redirigiendo a EduLink...
+        </div>
+    </div>
+
+    <script>
+        async function clearMessages() {
+            try {
+                // Open the database
+                const request = indexedDB.open('EduLinkDB', 2);
+
+                request.onsuccess = (event) => {
+                    const db = event.target.result;
+                    const transaction = db.transaction(['messages'], 'readwrite');
+                    const objectStore = transaction.objectStore('messages');
+                    const clearRequest = objectStore.clear();
+
+                    clearRequest.onsuccess = () => {
+                        console.log('✅ Mensajes eliminados exitosamente');
+                        document.getElementById('success').style.display = 'block';
+
+                        setTimeout(() => {
+                            window.location.href = 'http://localhost:3000/mensajes';
+                        }, 2000);
+                    };
+
+                    clearRequest.onerror = () => {
+                        console.error('Error al borrar mensajes');
+                        alert('Error al borrar mensajes. Ver consola para más detalles.');
+                    };
+                };
+
+                request.onerror = () => {
+                    console.error('Error al abrir la base de datos');
+                    alert('Error al abrir la base de datos. Ver consola para más detalles.');
+                };
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al resetear mensajes. Ver consola para más detalles.');
+            }
+        }
+
+        async function resetDatabase() {
+            if (!confirm('¿Estás seguro? Esto eliminará TODA la base de datos incluyendo usuarios, posts, archivos y mensajes.')) {
+                return;
+            }
+
+            try {
+                await indexedDB.deleteDatabase('EduLinkDB');
+
+                document.getElementById('success').style.display = 'block';
+
+                console.log('✅ Base de datos EduLinkDB eliminada exitosamente');
+
+                setTimeout(() => {
+                    window.location.href = 'http://localhost:3000';
+                }, 2000);
+            } catch (error) {
+                console.error('Error al resetear la base de datos:', error);
+                alert('Error al resetear la base de datos. Ver consola para más detalles.');
+            }
+        }
+    </script>
+</body>
+
+</html>

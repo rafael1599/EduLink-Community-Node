@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset EduLink Database</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #b91c1c;
+        }
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+        .info {
+            background: #3b82f6;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Reset EduLink Database</h1>
+        <div class="info">
+            <strong>⚠️ Atención:</strong> Esto borrará toda la base de datos IndexedDB de EduLink y permitirá que se vuelva a crear con datos de ejemplo.
+        </div>
+        <button onclick="resetDatabase()">Resetear Base de Datos</button>
+        <div class="success" id="success">
+            ✅ ¡Base de datos reseteada! Ahora recarga la página principal de EduLink.
+        </div>
+    </div>
+
+    <script>
+        async function resetDatabase() {
+            try {
+                // Delete the IndexedDB
+                await indexedDB.deleteDatabase('EduLinkDB');
+                
+                // Show success message
+                document.getElementById('success').style.display = 'block';
+                
+                console.log('✅ Base de datos EduLinkDB eliminada exitosamente');
+                
+                // Optional: redirect to main page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'http://localhost:3000';
+                }, 2000);
+            } catch (error) {
+                console.error('Error al resetear la base de datos:', error);
+                alert('Error al resetear la base de datos. Ver consola para más detalles.');
+            }
+        }
+    </script>
+</body>
+</html>
