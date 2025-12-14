@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useLiveQuery } from "dexie-react-hooks"
-import { db } from "@/lib/db"
+import { db, FileData } from "@/lib/db"
 import { FileUploader } from "@/components/biblioteca/file-uploader"
 import { useAuth } from "@/lib/contexts/auth-context"
 
@@ -95,7 +95,7 @@ export default function BibliotecaPage() {
                             </div>
                         ) : activeFolder ? (
                             <div className="grid grid-cols-2 gap-4">
-                                {files?.map((file) => (
+                                {files?.map((file: FileData) => (
                                     <Card
                                         key={file.id}
                                         className="p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow cursor-pointer bg-white group relative"

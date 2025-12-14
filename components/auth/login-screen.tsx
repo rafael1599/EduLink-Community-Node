@@ -1,7 +1,7 @@
 "use client"
 
 import { useLiveQuery } from "dexie-react-hooks"
-import { db } from "@/lib/db"
+import { db, User } from "@/lib/db"
 import { useAuth } from "@/lib/contexts/auth-context"
 import { Card, CardContent } from "@/components/ui/card"
 import { UserCircle, Shield, Briefcase, GraduationCap } from "lucide-react"
@@ -18,7 +18,7 @@ export function LoginScreen() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
-                {users?.map((user) => (
+                {users?.map((user: User) => (
                     <Card
                         key={user.id}
                         className="group hover:scale-105 transition-transform cursor-pointer border-none bg-slate-800 hover:bg-slate-700"
