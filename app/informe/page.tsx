@@ -440,7 +440,7 @@ export default function InformePage() {
                                 <h3 className="text-xl font-bold mb-1">¡Pruébalo Ahora!</h3>
                                 <p className="text-slate-300 text-sm mb-4">Escanea para acceder a la aplicación en Vercel</p>
                                 <a
-                                    href="https://edu-link-community-node-abi5s3k43-rafaels-projects-1431cd11.vercel.app/"
+                                    href="https://edu-link-community-node.vercel.app/"
                                     className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition-colors flex items-center gap-2 text-sm"
                                 >
                                     Open Web App <ArrowRight className="h-4 w-4" />
@@ -599,6 +599,8 @@ export default function InformePage() {
                     </div>
                 </div>
             </section>
+
+
 
         </div>
     )
