@@ -5,6 +5,7 @@ import { SystemProvider } from "@/lib/contexts/system-context";
 import { HardwareBar } from "@/components/layout/hardware-bar";
 import { Toaster } from "@/components/ui/sonner";
 import { DemoControls } from "@/components/layout/demo-controls";
+import { ReportFAB } from "../components/layout/report-fab";
 
 import { AuthProvider } from "@/lib/contexts/auth-context";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
             <main className="pt-14 pb-20 px-4 min-h-dvh">
               <MainLayout>{children}</MainLayout>
             </main>
+            <ReportFAB />
             <DemoControls />
             <Toaster />
           </SystemProvider>

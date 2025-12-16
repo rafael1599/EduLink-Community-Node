@@ -1,0 +1,35 @@
+Tabla SCAMPER Definitiva enfocada totalmente en el impacto social y la utilidad práctica.
+Tabla de Innovación: Aplicación del Método SCAMPER
+Objetivo: Evolucionar el EduLink Offline Hub hacia el EduLink Community Node, transformándolo de un servidor académico a una infraestructura crítica de conectividad rural.
+Letra
+	Acción
+	Aplicación en la Propuesta (El Cambio)
+	Justificación del Impacto (Por qué funciona)
+	S
+	Sustituir
+	Sustituir el enfoque de "Consumo Pasivo de Información" (solo lectura) por una Plataforma de Servicios Activos.
+	Adopción Real: Los usuarios rurales no interactúan con tecnología solo por curiosidad; lo hacen por necesidad. Al ofrecer servicios vitales, garantizamos que el dispositivo se integre en su rutina diaria.
+	C
+	Combinar
+	Combinar el servidor de contenidos con una Estación de Carga USB Pública de alto amperaje.
+	Gancho de Entrada: La falta de electricidad es un problema mayor que la falta de internet. Si el dispositivo carga sus celulares, los usuarios se mantendrán cerca de la señal Wi-Fi, facilitando el acceso a la educación.
+	A
+	Adaptar
+	Adaptar la experiencia de usuario incorporando un Asistente Contextual ("Don Pedro") que guía al usuario según su rol (Estudiante, Vecino, Líder).
+	Humanización: Reduce la curva de aprendizaje tecnológica. El usuario no siente que interactúa con una máquina compleja, sino que "conversa" con un asistente familiar, aumentando la confianza y el uso.
+	M
+	Modificar
+	Modificar la capa de hardware de red añadiendo transceptores LoRa (Largo Alcance) a la antena Wi-Fi estándar.
+	Comunicación: Permite crear una red de mensajería de texto asíncrona ("SMS Rural") entre comunidades vecinas a kilómetros de distancia, sin depender de operadoras telefónicas ni internet.
+	P
+	Poner en otro uso
+	Poner la página de inicio en otro uso: transformarla en un Tablón de Anuncios Digital (Marketplace Local).
+	Economía Circular: Permite a los pobladores publicar fotos (venta de ganado, cosecha, servicios) o avisos comunitarios, convirtiendo el sistema en el centro neurálgico del comercio local.
+	E
+	Eliminar
+	Eliminar las barreras de autenticación complejas (Zero-Login). Acceso inmediato mediante Portal Cautivo.
+	Fricción Cero: Las contraseñas se olvidan y frustran al usuario rural. El sistema identifica al dispositivo por MAC Address para guardar el progreso sin exigir credenciales.
+	R
+	Reorganizar
+	Reorganizar la prioridad de tráfico (QoS). Dar prioridad absoluta a la Mensajería de Emergencia sobre la descarga de contenido educativo.
+	Seguridad Crítica: En caso de emergencia médica o desastre natural, la comunicación debe fluir primero, posicionando al dispositivo como una herramienta de salvamento.
